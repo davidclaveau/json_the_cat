@@ -10,11 +10,7 @@ request(search, (err, response, body) => {
     console.log(err);
     return;
   }
-
-  console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
   const data = JSON.parse(body);
-
-
   if (!data[0]) {
     console.log("Data not found. Check spelling!");
     return;

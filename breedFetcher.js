@@ -8,11 +8,13 @@ const fetchBreedDescription = (breedName, callback) => {
   request(search, (err, response, body) => {
     if (err) {
       callback(err, null);
+      return;
     }
 
     const data = JSON.parse(body);
     if (!data[0]) {
       callback("Data not found. Check spelling!", null);
+      return;
     }
 
     callback(null, data[0].description);
